@@ -34,3 +34,18 @@ Ne pas enregistrer de mots de passe, numéros de comptes, données bancaires, do
 Le rang du bus n'est **pas suivi par GPS en temps réel**. WhatsApp et la banque ne sont pas connectés automatiquement. Pour un partage entre téléphones, il faut ajouter une authentification et une base sécurisée, comme Supabase avec politiques d'accès appropriées.
 
 Le dépôt est séparé des projets SIG et ne modifie aucun de leurs fichiers.
+
+## Synchronisation entre téléphones (préparation)
+
+La rubrique **Synchronisation** conserve les données localement sur chaque appareil et propose une copie cloud Supabase accessible après identification. Le dépôt GitHub reste public, mais les données cloud doivent rester privées et protégées par les règles RLS du fichier `supabase/schema.sql`.
+
+**Important :** la synchronisation n'est pas active tant qu'un **nouveau projet Supabase dédié** n'est pas créé et configuré. Ne pas utiliser le projet Supabase `pmr` : les informations familiales doivent être séparées des données SIG.
+
+1. Créer un projet Supabase indépendant « gestion-familiale ».
+2. Exécuter `supabase/schema.sql` dans l'éditeur SQL de ce nouveau projet (uniquement).
+3. Dans l'application, ouvrir **Synchronisation** et saisir l'URL du nouveau projet et sa clé **publishable** (jamais `service_role`).
+4. Créer un compte et se connecter. Exporter d'abord une sauvegarde JSON des données locales.
+5. Sur le premier téléphone, choisir **Envoyer les données de cet appareil**. Sur le second téléphone, ouvrir le même lien GitHub Pages, se connecter avec le même compte et choisir **Récupérer les données du cloud**.
+6. Les modifications sont envoyées et vérifiées périodiquement lorsque la connexion Internet est disponible.
+
+**Limite V1 :** si les deux appareils modifient des données simultanément, la dernière sauvegarde complète écrite sur le cloud peut écraser une modification concurrente. Il n'y a pas encore de fusion automatique des données. Il est préférable d'éditer à tour de rôle et de faire des exports JSON réguliers. À terme, créer deux comptes personnels rattachés à un même groupe familial serait plus sûr que de partager un mot de passe.
