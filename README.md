@@ -7,6 +7,7 @@ Application web gratuite de suivi familial, en français et en francs djiboutien
 - **Bus bleu et bus jaune** : chauffeur, rang saisi manuellement, état, remarques et dates d'expiration de l'assurance, de la vignette et de la patente.
 - **Débriefing** : enregistrer les contrôles à raison de deux fois par mois.
 - **Finances des bus** : recettes, dépenses et bilans par mois, semestre et année.
+- **Dettes** : montant initial, remboursements depuis un bus, solde restant et déduction des remboursements du résultat net du bus (recettes brutes inchangées).
 - **Maisons** : budget de maman à 45 000 DJF (30 000 + 15 000) et budget de Salma à vérifier.
 - **Planning de Robleh** : jours de travail et nuits de garde.
 - **Khuruj de Boukari** : budget, vêtements, sac et tâches supplémentaires.
