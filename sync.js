@@ -3,7 +3,8 @@
 (()=>{
 'use strict';
 const C='gf-supabase-config',T='gf-auth-session',S='gf-sync-enabled',P='gf-sync-pending';
-let config=JSON.parse(localStorage.getItem(C)||'null'),session=JSON.parse(localStorage.getItem(T)||'null');
+const DEFAULT_CONFIG={url:'https://nvctiwhfydidlfjumfgd.supabase.co',key:'sb_publishable_CGqqjoi0tDPmLhQexxPNVw_S4lPC4Wk'};
+let config=JSON.parse(localStorage.getItem(C)||'null')||DEFAULT_CONFIG,session=JSON.parse(localStorage.getItem(T)||'null');
 let enabled=localStorage.getItem(S)==='1',pending=localStorage.getItem(P)==='1',busy=false,lastTimestamp='',timer=null;
 const by=id=>document.getElementById(id);
 const status=msg=>{const el=by('sync-status');if(el)el.textContent=msg};
