@@ -49,3 +49,9 @@ La rubrique **Synchronisation** conserve les données localement sur chaque appa
 6. Les modifications sont envoyées et vérifiées périodiquement lorsque la connexion Internet est disponible.
 
 **Limite V1 :** si les deux appareils modifient des données simultanément, la dernière sauvegarde complète écrite sur le cloud peut écraser une modification concurrente. Il n'y a pas encore de fusion automatique des données. Il est préférable d'éditer à tour de rôle et de faire des exports JSON réguliers. À terme, créer deux comptes personnels rattachés à un même groupe familial serait plus sûr que de partager un mot de passe.
+
+### Activation guidée dans l'application
+
+Le menu **Synchronisation** contient maintenant un bouton **Copier le SQL de configuration** et un lien direct vers [l'éditeur SQL du projet familial](https://supabase.com/dashboard/project/nvctiwhfydidlfjumfgd/sql/new). Le SQL doit être exécuté **dans le projet familial**, et non dans PMR. Cela crée `family_snapshots`, la table utilisée par `sync.js` ; la table existante `gestion_famille` n'est pas modifiée.
+
+La publication sur GitHub ne remplace pas l'exécution du SQL dans Supabase. Une clé publique ne permet pas d'administrer la base. Après exécution du SQL, utiliser le même compte de connexion Supabase sur les deux appareils ; les modifications sont synchronisées périodiquement. Ne jamais publier les sauvegardes privées.
